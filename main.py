@@ -21,6 +21,9 @@ for index,row in df.iterrows():
     pdf.set_font(family="Arial", style='I',size=9)
     pdf.cell(w=0,h=footer_height,txt=row["Topic"], align="R")
     pdf.line(0.4,10.5,8.1,10.5) 
+    for y in range(12,105,3):    #create lines for ruled paper
+                pdf.line(0.4,y/10,8.1,y/10)
+
 
     for i in range(row["Pages"]-1):
         pdf.add_page()
@@ -29,5 +32,7 @@ for index,row in df.iterrows():
         pdf.set_font(family="Arial", style='I',size=9)
         pdf.cell(w=0,h=footer_height,txt=row["Topic"], align="R")
         pdf.line(0.4,10.5,8.1,10.5) 
+        for y in range(6,105,3):
+                pdf.line(0.4,y/10,8.1,y/10)
 
 pdf.output("output.pdf")
